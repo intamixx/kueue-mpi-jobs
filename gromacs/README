@@ -1,0 +1,20 @@
+Easybuild install;
+
+eb GROMACS-2023.1-foss-2022a.eb -t --containerize --container-type=singularity --container-config bootstrap=docker,from=intamixx/mpi-template --container-build-image --experimental --force
+
+singularity build --sandbox /tmp/gromacs-2023.1-GCC-11.3.0 ./GROMACS-2023.1-foss-2022a.sif
+singularity exec --writable /tmp/gromacs-2023.1-GCC-11.3.0 /bin/bash
+
+edit .profile of mpiuser to load modules etc etc.
+
+singularity build /tmp/gromacs-2023.1-GCC-11.3.0.sif /tmp/gromacs-2023.1-GCC-11.3.0
+
+singularity sif list gromacs-2023.1-GCC-11.3.0.sif
+singularity sif dump 2 gromacs-2023.1-GCC-11.3.0.sif
+
+Get any environment variables required etc
+
+singularity sif dump 3 gromacs-2023.1-GCC-11.3.0.sif > data.squash
+unsquashfs -dest data data.squash
+
+Build with Dockerfile supplied from scratch etc
