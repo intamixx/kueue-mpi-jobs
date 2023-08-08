@@ -1,1 +1,22 @@
+Using EasyBuild
+eb OpenFOAM-v2206-foss-2022a.eb -t -r -C --container-build-image --container-type=singularity --container-config bootstrap=localimage,from=./foss-2022a.sif --experimental --force
+
+Create writable singularity image with sandbox
+edit .profile of mpiuser to load modules etc etc.
+Rebuild sif image
+
+Dump singularity to new sif
+
+singularity build /tmp/gromacs-2023.1-GCC-11.3.0.sif /tmp/gromacs-2023.1-GCC-11.3.0
+
+singularity sif list gromacs-2023.1-GCC-11.3.0.sif
+singularity sif dump 2 gromacs-2023.1-GCC-11.3.0.sif
+
+Get any environment variables required etc
+
+singularity sif dump 3 newimage.sif > data.squash
+unsquashfs -dest data data.squash
+
+Build with Dockerfile supplied from scratch etc
+docker build --tag .....
 
