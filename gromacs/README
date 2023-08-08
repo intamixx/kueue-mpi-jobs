@@ -18,3 +18,4 @@ singularity sif dump 3 gromacs-2023.1-GCC-11.3.0.sif > data.squash
 unsquashfs -dest data data.squash
 
 Build with Dockerfile supplied from scratch etc
+docker build --tag gromacs-2023.1-GCC-11.3.0:latest .
