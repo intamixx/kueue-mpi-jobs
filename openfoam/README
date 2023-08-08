@@ -7,10 +7,9 @@ Rebuild sif image
 
 Dump singularity to new sif
 
-singularity build /tmp/gromacs-2023.1-GCC-11.3.0.sif /tmp/gromacs-2023.1-GCC-11.3.0
+singularity build /tmp/newimage.sif /tmp/openfoam-sandbox
 
-singularity sif list gromacs-2023.1-GCC-11.3.0.sif
-singularity sif dump 2 gromacs-2023.1-GCC-11.3.0.sif
+singularity sif dump 2 newimage.sif
 
 Get any environment variables required etc
 
